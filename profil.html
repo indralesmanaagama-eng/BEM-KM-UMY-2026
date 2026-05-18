@@ -94,14 +94,119 @@
         }
 
         /* =========================
-           VALUE BOX ESTETIK
+           NILAI ORGANISASI + AKAR POHON
         ========================= */
+
+        .nilai-organisasi {
+            position: relative;
+            background:
+                radial-gradient(circle at top center, rgba(37,99,235,0.08), transparent 36%),
+                #f8fafc;
+            overflow: hidden;
+        }
+
+        .tree-area {
+            position: relative;
+            min-height: 720px;
+            padding-top: 155px;
+        }
+
+        .tree-trunk {
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95px;
+            height: 145px;
+            background: linear-gradient(180deg, #5a351e, #2f1c10);
+            border-radius: 0 0 50px 50px;
+            z-index: 2;
+            box-shadow:
+                inset 10px 0 18px rgba(255,255,255,0.08),
+                0 18px 35px rgba(47,28,16,0.16);
+        }
+
+        .tree-trunk::before,
+        .tree-trunk::after {
+            content: "";
+            position: absolute;
+            top: 24px;
+            width: 46px;
+            height: 92px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.08);
+        }
+
+        .tree-trunk::before {
+            left: 8px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .tree-trunk::after {
+            right: 8px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .root-svg {
+            position: absolute;
+            top: 65px;
+            left: 0;
+            width: 100%;
+            height: 650px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .root-path {
+            fill: none;
+            stroke: #3a2415;
+            stroke-width: 10;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            opacity: 0.9;
+            filter: drop-shadow(0 12px 12px rgba(58,36,21,0.12));
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawRoot 1.8s ease forwards;
+        }
+
+        .root-small {
+            fill: none;
+            stroke: #3a2415;
+            stroke-width: 5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            opacity: 0.75;
+            stroke-dasharray: 400;
+            stroke-dashoffset: 400;
+            animation: drawRoot 1.8s ease forwards;
+        }
+
+        .root-1 { animation-delay: 0.1s; }
+        .root-2 { animation-delay: 0.25s; }
+        .root-3 { animation-delay: 0.4s; }
+        .root-4 { animation-delay: 0.55s; }
+        .root-5 { animation-delay: 0.7s; }
+        .root-6 { animation-delay: 0.85s; }
+
+        @keyframes drawRoot {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .nilai-grid {
+            position: relative;
+            z-index: 3;
+        }
 
         .value-box {
             position: relative;
             padding: 40px 30px;
             border-radius: 28px;
-            background: rgba(255,255,255,0.75);
+            background: rgba(255,255,255,0.88);
             backdrop-filter: blur(14px);
             border: 1px solid rgba(255,255,255,0.4);
             box-shadow:
@@ -109,10 +214,10 @@
                 0 2px 10px rgba(15,23,42,0.04);
             transition: all 0.45s ease;
             height: 100%;
+            min-height: 210px;
             overflow: hidden;
         }
 
-        /* Glow background */
         .value-box::after {
             content: "";
             position: absolute;
@@ -125,7 +230,6 @@
             z-index: 0;
         }
 
-        /* garis atas */
         .value-box::before {
             content: "";
             position: absolute;
@@ -144,7 +248,6 @@
                 0 10px 25px rgba(37,99,235,0.10);
         }
 
-        /* Huruf utama */
         .value-box h2 {
             position: relative;
             z-index: 2;
@@ -155,7 +258,6 @@
             letter-spacing: 4px;
         }
 
-        /* Deskripsi */
         .value-box p {
             position: relative;
             z-index: 2;
@@ -166,7 +268,6 @@
             margin: 0;
         }
 
-        /* Variasi warna tiap card */
         .col-md-4:nth-child(1) .value-box::before {
             background: linear-gradient(90deg,#2563eb,#60a5fa);
         }
@@ -199,6 +300,16 @@
         @media (max-width: 768px) {
             .section-title {
                 font-size: 34px;
+            }
+
+            .tree-area {
+                padding-top: 0;
+                min-height: auto;
+            }
+
+            .tree-trunk,
+            .root-svg {
+                display: none;
             }
 
             .value-box {
@@ -259,54 +370,89 @@
     </div>
 </section>
 
-<section class="py-5">
+<section class="py-5 nilai-organisasi">
     <div class="container">
         <h2 class="section-title">Nilai-Nilai Organisasi</h2>
 
-        <div class="row text-center g-4 mt-3">
+        <div class="tree-area">
 
-            <div class="col-md-4">
-                <div class="value-box">
-                    <h2>K</h2>
-                    <p>Kritis Dalam Berpikir.</p>
+            <div class="tree-trunk"></div>
+
+            <svg class="root-svg" viewBox="0 0 1200 650" preserveAspectRatio="none">
+                <!-- Akar utama ke setiap kotak -->
+                <path class="root-path root-1" d="M600 35 C470 95 340 145 170 225" />
+                <path class="root-path root-2" d="M600 35 C570 105 560 160 600 225" />
+                <path class="root-path root-3" d="M600 35 C730 95 860 145 1030 225" />
+
+                <path class="root-path root-4" d="M600 35 C430 190 310 305 170 500" />
+                <path class="root-path root-5" d="M600 35 C590 200 595 340 600 500" />
+                <path class="root-path root-6" d="M600 35 C770 190 890 305 1030 500" />
+
+                <!-- Cabang kecil agar akar lebih natural -->
+                <path class="root-small root-1" d="M360 155 C310 165 285 190 245 215" />
+                <path class="root-small root-1" d="M305 180 C260 180 230 200 195 235" />
+
+                <path class="root-small root-2" d="M575 145 C535 155 515 175 490 205" />
+                <path class="root-small root-2" d="M590 175 C625 185 645 205 670 235" />
+
+                <path class="root-small root-3" d="M840 155 C890 165 920 190 955 220" />
+                <path class="root-small root-3" d="M900 180 C950 180 985 205 1025 240" />
+
+                <path class="root-small root-4" d="M380 245 C330 260 300 300 270 350" />
+                <path class="root-small root-4" d="M300 330 C250 345 215 385 185 440" />
+
+                <path class="root-small root-5" d="M590 270 C545 300 525 345 510 405" />
+                <path class="root-small root-5" d="M610 315 C650 345 670 390 685 450" />
+
+                <path class="root-small root-6" d="M820 245 C870 260 900 300 930 350" />
+                <path class="root-small root-6" d="M900 330 C950 345 985 385 1015 440" />
+            </svg>
+
+            <div class="row text-center g-4 mt-3 nilai-grid">
+
+                <div class="col-md-4">
+                    <div class="value-box">
+                        <h2>K</h2>
+                        <p>Kritis Dalam Berpikir.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-4">
-                <div class="value-box">
-                    <h2>R</h2>
-                    <p>Responsif Terhadap Dinamika.</p>
+                <div class="col-md-4">
+                    <div class="value-box">
+                        <h2>R</h2>
+                        <p>Responsif Terhadap Dinamika.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-4">
-                <div class="value-box">
-                    <h2>I</h2>
-                    <p>Inovatif Dengan Zaman.</p>
+                <div class="col-md-4">
+                    <div class="value-box">
+                        <h2>I</h2>
+                        <p>Inovatif Dengan Zaman.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-4">
-                <div class="value-box">
-                    <h2>T</h2>
-                    <p>Tangguh Menghadapi Tantangan.</p>
+                <div class="col-md-4">
+                    <div class="value-box">
+                        <h2>T</h2>
+                        <p>Tangguh Menghadapi Tantangan.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-4">
-                <div class="value-box">
-                    <h2>I</h2>
-                    <p>Inklusif Dalam Bergerak.</p>
+                <div class="col-md-4">
+                    <div class="value-box">
+                        <h2>I</h2>
+                        <p>Inklusif Dalam Bergerak.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-4">
-                <div class="value-box">
-                    <h2>S</h2>
-                    <p>Sustainable Dalam Berkarya.</p>
+                <div class="col-md-4">
+                    <div class="value-box">
+                        <h2>S</h2>
+                        <p>Sustainable Dalam Berkarya.</p>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
 </section>
