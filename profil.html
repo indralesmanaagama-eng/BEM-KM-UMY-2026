@@ -11,6 +11,7 @@
         body {
             margin: 0;
             font-family: 'Segoe UI', sans-serif;
+            background: #f8fafc;
         }
 
         .navbar {
@@ -73,63 +74,128 @@
             }
         }
 
-        /* =========================
-           POHON AKAR KRITIS
-        ========================= */
-        .tree-root-wrapper {
-            position: relative;
-            height: 260px;
-            margin-bottom: 20px;
-        }
-
-        .tree-root-title {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 52px;
-            font-weight: 900;
-            letter-spacing: 12px;
-            color: #212529;
-            z-index: 2;
-        }
-
-        .tree-root-svg {
-            position: absolute;
-            top: 70px;
-            left: 0;
-            width: 100%;
-            height: 190px;
-            z-index: 1;
-        }
-
-        /* Value Box */
-        .value-box {
-            padding: 30px;
-            border-radius: 18px;
-            background: #ffffff;
-            transition: 0.3s;
-            height: 100%;
-        }
-
-        .value-box:hover {
-            transform: translateY(-8px);
-        }
-
+        /* Judul Section */
         .section-title {
             font-weight: 800;
             text-align: center;
             margin-bottom: 30px;
+            color: #0f172a;
+        }
+
+        /* Kartu Nilai Organisasi */
+        .value-box {
+            position: relative;
+            padding: 40px 30px;
+            border-radius: 24px;
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            box-shadow:
+                0 10px 30px rgba(15, 23, 42, 0.06),
+                0 2px 8px rgba(15, 23, 42, 0.04);
+            transition: all 0.4s ease;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Garis dekoratif atas */
+        .value-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1d4ed8, #3b82f6, #60a5fa);
+        }
+
+        /* Efek glow */
+        .value-box::after {
+            content: "";
+            position: absolute;
+            top: -60%;
+            right: -40%;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(59,130,246,0.08), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .value-box:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow:
+                0 20px 45px rgba(15, 23, 42, 0.10),
+                0 8px 20px rgba(59, 130, 246, 0.08);
+        }
+
+        /* Huruf Utama */
+        .value-box h2 {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 18px;
+            color: #0f172a;
+            letter-spacing: 2px;
+            line-height: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Deskripsi */
+        .value-box p {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #334155;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Warna berbeda tiap kartu */
+        .row > .col-md-4:nth-child(1) .value-box::before {
+            background: linear-gradient(90deg, #2563eb, #60a5fa);
+        }
+
+        .row > .col-md-4:nth-child(2) .value-box::before {
+            background: linear-gradient(90deg, #7c3aed, #a78bfa);
+        }
+
+        .row > .col-md-4:nth-child(3) .value-box::before {
+            background: linear-gradient(90deg, #0891b2, #67e8f9);
+        }
+
+        .row > .col-md-4:nth-child(4) .value-box::before {
+            background: linear-gradient(90deg, #16a34a, #86efac);
+        }
+
+        .row > .col-md-4:nth-child(5) .value-box::before {
+            background: linear-gradient(90deg, #ea580c, #fdba74);
+        }
+
+        .row > .col-md-4:nth-child(6) .value-box::before {
+            background: linear-gradient(90deg, #dc2626, #fca5a5);
         }
 
         footer {
             background: #0f172a;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .tree-root-wrapper {
-                display: none;
+            .profil-modern h2 {
+                font-size: 38px;
+            }
+
+            .value-box {
+                padding: 32px 24px;
+                border-radius: 20px;
+            }
+
+            .value-box h2 {
+                font-size: 44px;
+            }
+
+            .value-box p {
+                font-size: 16px;
             }
         }
     </style>
@@ -162,13 +228,11 @@
 <section class="profil-modern">
     <div class="container content">
         <h4>Kabinet Rajut Asa</h4>
-        <p></p>
         <h2>BEM KM UMY 2026</h2>
         <p>
             BEM KM UMY adalah organisasi mahasiswa yang menjadi wadah aspirasi, pengembangan,
             dan perjuangan mahasiswa Universitas Muhammadiyah Yogyakarta.
         </p>
-
         <p>
             Bergerak dalam advokasi, riset sosial, serta implementasi program strategis demi menciptakan
             kampus yang progresif dan berdaya saing.
@@ -179,58 +243,6 @@
 <section class="py-5">
     <div class="container">
         <h2 class="section-title">Nilai-Nilai Organisasi</h2>
-
-        <!-- Pohon akar terbalik -->
-        <div class="tree-root-wrapper">
-            <div class="tree-root-title">KRITIS</div>
-
-            <svg class="tree-root-svg" viewBox="0 0 1200 260" preserveAspectRatio="none">
-                <!-- Batang utama -->
-                <path d="M600 0 L600 70"
-                      stroke="#212529"
-                      stroke-width="6"
-                      fill="none"
-                      stroke-linecap="round"/>
-
-                <!-- Cabang ke baris atas -->
-                <path d="M600 70 C560 90, 460 110, 200 130"
-                      stroke="#212529"
-                      stroke-width="6"
-                      fill="none"
-                      stroke-linecap="round"/>
-
-                <path d="M600 70 C620 90, 620 110, 600 130"
-                      stroke="#212529"
-                      stroke-width="6"
-                      fill="none"
-                      stroke-linecap="round"/>
-
-                <path d="M600 70 C640 90, 740 110, 1000 130"
-                      stroke="#212529"
-                      stroke-width="6"
-                      fill="none"
-                      stroke-linecap="round"/>
-
-                <!-- Cabang ke baris bawah -->
-                <path d="M600 70 C520 120, 420 160, 200 240"
-                      stroke="#212529"
-                      stroke-width="6"
-                      fill="none"
-                      stroke-linecap="round"/>
-
-                <path d="M600 70 C600 130, 600 180, 600 240"
-                      stroke="#212529"
-                      stroke-width="6"
-                      fill="none"
-                      stroke-linecap="round"/>
-
-                <path d="M600 70 C680 120, 780 160, 1000 240"
-                      stroke="#212529"
-                      stroke-width="6"
-                      fill="none"
-                      stroke-linecap="round"/>
-            </svg>
-        </div>
 
         <div class="row text-center g-4 mt-3">
             <div class="col-md-4">
