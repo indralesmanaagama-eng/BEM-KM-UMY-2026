@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -77,13 +77,41 @@
         .section-title {
             font-weight: 900;
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 0;
             font-size: 48px;
             color: #0f172a;
             position: relative;
         }
 
         .section-title::after {
+            content: "";
+            width: 90px;
+            height: 5px;
+            background: linear-gradient(
+                90deg,
+                #08151d,
+                #1f5f69,
+                #5bc2c9,
+                #1f5f69,
+                #08151d
+            );
+            display: block;
+            margin: 18px auto 0;
+            border-radius: 20px;
+        }
+
+        .kritis-title {
+            font-weight: 900;
+            text-align: center;
+            font-size: 56px;
+            letter-spacing: 8px;
+            color: #0f172a;
+            margin-top: 130px;
+            margin-bottom: 45px;
+            position: relative;
+        }
+
+        .kritis-title::after {
             content: "";
             width: 90px;
             height: 5px;
@@ -119,7 +147,6 @@
             overflow: hidden;
         }
 
-        /* Glow background */
         .value-box::after {
             content: "";
             position: absolute;
@@ -132,7 +159,6 @@
             z-index: 0;
         }
 
-        /* garis atas */
         .value-box::before {
             content: "";
             position: absolute;
@@ -158,7 +184,6 @@
                 0 10px 25px rgba(91,194,201,0.16);
         }
 
-        /* Huruf utama */
         .value-box h2 {
             position: relative;
             z-index: 2;
@@ -169,7 +194,6 @@
             letter-spacing: 4px;
         }
 
-        /* Deskripsi */
         .value-box p {
             position: relative;
             z-index: 2;
@@ -180,7 +204,6 @@
             margin: 0;
         }
 
-        /* Semua garis atas card memakai tema warna yang sama */
         .col-md-4:nth-child(1) .value-box::before,
         .col-md-4:nth-child(2) .value-box::before,
         .col-md-4:nth-child(3) .value-box::before,
@@ -205,6 +228,13 @@
         @media (max-width: 768px) {
             .section-title {
                 font-size: 34px;
+            }
+
+            .kritis-title {
+                font-size: 38px;
+                letter-spacing: 5px;
+                margin-top: 70px;
+                margin-bottom: 35px;
             }
 
             .value-box {
@@ -268,8 +298,9 @@
 <section class="py-5">
     <div class="container">
         <h2 class="section-title">Nilai-Nilai Organisasi</h2>
-        <h2 class="section-title">KRITIS</h2>
-    <div>
+
+        <h2 class="kritis-title">KRITIS</h2>
+
         <div class="row text-center g-4 mt-3">
 
             <div class="col-md-4">
