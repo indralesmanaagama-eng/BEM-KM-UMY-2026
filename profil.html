@@ -74,73 +74,42 @@
         }
 
         /* =========================
-           VISUAL POHON KRITIS
+           POHON AKAR KRITIS
         ========================= */
-        .values-tree {
+        .tree-root-wrapper {
             position: relative;
-            text-align: center;
-            margin-bottom: 70px;
+            height: 260px;
+            margin-bottom: 20px;
         }
 
-        .tree-word {
-            display: inline-block;
+        .tree-root-title {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
             font-size: 52px;
             font-weight: 900;
             letter-spacing: 12px;
             color: #212529;
-            position: relative;
-            padding-bottom: 80px;
+            z-index: 2;
         }
 
-        /* Batang utama */
-        .tree-word::after {
-            content: '';
+        .tree-root-svg {
             position: absolute;
-            left: 50%;
-            top: 100%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 45px;
-            background: #212529;
-            border-radius: 10px;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: 190px;
+            z-index: 1;
         }
 
-        /* Garis horizontal akar */
-        .values-tree::after {
-            content: '';
-            position: absolute;
-            top: 128px;
-            left: 16.66%;
-            right: 16.66%;
-            height: 4px;
-            background: #212529;
-            border-radius: 10px;
-        }
-
-        /* =========================
-           VALUE BOX
-        ========================= */
+        /* Value Box */
         .value-box {
-            position: relative;
             padding: 30px;
             border-radius: 18px;
             background: #ffffff;
             transition: 0.3s;
             height: 100%;
-            margin-top: 40px;
-        }
-
-        /* Garis vertikal ke tiap box */
-        .value-box::before {
-            content: '';
-            position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3px;
-            height: 40px;
-            background: #212529;
-            border-radius: 10px;
         }
 
         .value-box:hover {
@@ -157,25 +126,10 @@
             background: #0f172a;
         }
 
-        /* Responsive Mobile */
+        /* Responsive */
         @media (max-width: 768px) {
-            .tree-word {
-                font-size: 34px;
-                letter-spacing: 6px;
-                padding-bottom: 50px;
-            }
-
-            .tree-word::after {
-                height: 30px;
-            }
-
-            .values-tree::after,
-            .value-box::before {
+            .tree-root-wrapper {
                 display: none;
-            }
-
-            .value-box {
-                margin-top: 0;
             }
         }
     </style>
@@ -226,9 +180,56 @@
     <div class="container">
         <h2 class="section-title">Nilai-Nilai Organisasi</h2>
 
-        <!-- Visual Pohon KRITIS -->
-        <div class="values-tree">
-            <div class="tree-word">KRITIS</div>
+        <!-- Pohon akar terbalik -->
+        <div class="tree-root-wrapper">
+            <div class="tree-root-title">KRITIS</div>
+
+            <svg class="tree-root-svg" viewBox="0 0 1200 260" preserveAspectRatio="none">
+                <!-- Batang utama -->
+                <path d="M600 0 L600 70"
+                      stroke="#212529"
+                      stroke-width="6"
+                      fill="none"
+                      stroke-linecap="round"/>
+
+                <!-- Cabang ke baris atas -->
+                <path d="M600 70 C560 90, 460 110, 200 130"
+                      stroke="#212529"
+                      stroke-width="6"
+                      fill="none"
+                      stroke-linecap="round"/>
+
+                <path d="M600 70 C620 90, 620 110, 600 130"
+                      stroke="#212529"
+                      stroke-width="6"
+                      fill="none"
+                      stroke-linecap="round"/>
+
+                <path d="M600 70 C640 90, 740 110, 1000 130"
+                      stroke="#212529"
+                      stroke-width="6"
+                      fill="none"
+                      stroke-linecap="round"/>
+
+                <!-- Cabang ke baris bawah -->
+                <path d="M600 70 C520 120, 420 160, 200 240"
+                      stroke="#212529"
+                      stroke-width="6"
+                      fill="none"
+                      stroke-linecap="round"/>
+
+                <path d="M600 70 C600 130, 600 180, 600 240"
+                      stroke="#212529"
+                      stroke-width="6"
+                      fill="none"
+                      stroke-linecap="round"/>
+
+                <path d="M600 70 C680 120, 780 160, 1000 240"
+                      stroke="#212529"
+                      stroke-width="6"
+                      fill="none"
+                      stroke-linecap="round"/>
+            </svg>
         </div>
 
         <div class="row text-center g-4 mt-3">
