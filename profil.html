@@ -74,124 +74,140 @@
             }
         }
 
-        /* Judul Section */
         .section-title {
-            font-weight: 800;
+            font-weight: 900;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 60px;
+            font-size: 48px;
             color: #0f172a;
+            position: relative;
         }
 
-        /* Kartu Nilai Organisasi */
+        .section-title::after {
+            content: "";
+            width: 90px;
+            height: 5px;
+            background: linear-gradient(90deg, #2563eb, #60a5fa);
+            display: block;
+            margin: 18px auto 0;
+            border-radius: 20px;
+        }
+
+        /* =========================
+           VALUE BOX ESTETIK
+        ========================= */
+
         .value-box {
             position: relative;
             padding: 40px 30px;
-            border-radius: 24px;
-            background: linear-gradient(145deg, #ffffff, #f8fafc);
-            border: 1px solid rgba(15, 23, 42, 0.06);
+            border-radius: 28px;
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255,255,255,0.4);
             box-shadow:
-                0 10px 30px rgba(15, 23, 42, 0.06),
-                0 2px 8px rgba(15, 23, 42, 0.04);
-            transition: all 0.4s ease;
+                0 10px 35px rgba(15,23,42,0.07),
+                0 2px 10px rgba(15,23,42,0.04);
+            transition: all 0.45s ease;
             height: 100%;
             overflow: hidden;
         }
 
-        /* Garis dekoratif atas */
+        /* Glow background */
+        .value-box::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            top: -80px;
+            right: -80px;
+            background: radial-gradient(circle, rgba(59,130,246,0.12), transparent 70%);
+            z-index: 0;
+        }
+
+        /* garis atas */
         .value-box::before {
             content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #1d4ed8, #3b82f6, #60a5fa);
-        }
-
-        /* Efek glow */
-        .value-box::after {
-            content: "";
-            position: absolute;
-            top: -60%;
-            right: -40%;
-            width: 180px;
-            height: 180px;
-            background: radial-gradient(circle, rgba(59,130,246,0.08), transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
+            height: 5px;
+            border-radius: 20px;
+            background: linear-gradient(90deg,#2563eb,#60a5fa);
         }
 
         .value-box:hover {
-            transform: translateY(-12px) scale(1.02);
+            transform: translateY(-14px) scale(1.02);
             box-shadow:
-                0 20px 45px rgba(15, 23, 42, 0.10),
-                0 8px 20px rgba(59, 130, 246, 0.08);
+                0 25px 50px rgba(15,23,42,0.12),
+                0 10px 25px rgba(37,99,235,0.10);
         }
 
-        /* Huruf Utama */
+        /* Huruf utama */
         .value-box h2 {
-            font-size: 56px;
-            font-weight: 900;
-            margin-bottom: 18px;
-            color: #0f172a;
-            letter-spacing: 2px;
-            line-height: 1;
             position: relative;
             z-index: 2;
+            font-size: 64px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: #0f172a;
+            letter-spacing: 4px;
         }
 
         /* Deskripsi */
         .value-box p {
-            margin: 0;
-            font-size: 18px;
-            line-height: 1.7;
-            color: #334155;
-            font-weight: 500;
             position: relative;
             z-index: 2;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #334155;
+            font-weight: 500;
+            margin: 0;
         }
 
-        /* Warna berbeda tiap kartu */
-        .row > .col-md-4:nth-child(1) .value-box::before {
-            background: linear-gradient(90deg, #2563eb, #60a5fa);
+        /* Variasi warna tiap card */
+        .col-md-4:nth-child(1) .value-box::before {
+            background: linear-gradient(90deg,#2563eb,#60a5fa);
         }
 
-        .row > .col-md-4:nth-child(2) .value-box::before {
-            background: linear-gradient(90deg, #7c3aed, #a78bfa);
+        .col-md-4:nth-child(2) .value-box::before {
+            background: linear-gradient(90deg,#7c3aed,#c084fc);
         }
 
-        .row > .col-md-4:nth-child(3) .value-box::before {
-            background: linear-gradient(90deg, #0891b2, #67e8f9);
+        .col-md-4:nth-child(3) .value-box::before {
+            background: linear-gradient(90deg,#0891b2,#67e8f9);
         }
 
-        .row > .col-md-4:nth-child(4) .value-box::before {
-            background: linear-gradient(90deg, #16a34a, #86efac);
+        .col-md-4:nth-child(4) .value-box::before {
+            background: linear-gradient(90deg,#16a34a,#86efac);
         }
 
-        .row > .col-md-4:nth-child(5) .value-box::before {
-            background: linear-gradient(90deg, #ea580c, #fdba74);
+        .col-md-4:nth-child(5) .value-box::before {
+            background: linear-gradient(90deg,#ea580c,#fdba74);
         }
 
-        .row > .col-md-4:nth-child(6) .value-box::before {
-            background: linear-gradient(90deg, #dc2626, #fca5a5);
+        .col-md-4:nth-child(6) .value-box::before {
+            background: linear-gradient(90deg,#dc2626,#fca5a5);
         }
 
         footer {
             background: #0f172a;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
-            .profil-modern h2 {
-                font-size: 38px;
+            .section-title {
+                font-size: 34px;
             }
 
             .value-box {
                 padding: 32px 24px;
-                border-radius: 20px;
+                border-radius: 22px;
             }
 
             .value-box h2 {
-                font-size: 44px;
+                font-size: 48px;
             }
 
             .value-box p {
@@ -228,11 +244,14 @@
 <section class="profil-modern">
     <div class="container content">
         <h4>Kabinet Rajut Asa</h4>
+
         <h2>BEM KM UMY 2026</h2>
+
         <p>
             BEM KM UMY adalah organisasi mahasiswa yang menjadi wadah aspirasi, pengembangan,
             dan perjuangan mahasiswa Universitas Muhammadiyah Yogyakarta.
         </p>
+
         <p>
             Bergerak dalam advokasi, riset sosial, serta implementasi program strategis demi menciptakan
             kampus yang progresif dan berdaya saing.
@@ -245,47 +264,49 @@
         <h2 class="section-title">Nilai-Nilai Organisasi</h2>
 
         <div class="row text-center g-4 mt-3">
+
             <div class="col-md-4">
-                <div class="value-box shadow-sm">
+                <div class="value-box">
                     <h2>K</h2>
                     <p>Kritis Dalam Berpikir.</p>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <div class="value-box shadow-sm">
+                <div class="value-box">
                     <h2>R</h2>
                     <p>Responsif Terhadap Dinamika.</p>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <div class="value-box shadow-sm">
+                <div class="value-box">
                     <h2>I</h2>
                     <p>Inovatif Dengan Zaman.</p>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <div class="value-box shadow-sm">
+                <div class="value-box">
                     <h2>T</h2>
                     <p>Tangguh Menghadapi Tantangan.</p>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <div class="value-box shadow-sm">
+                <div class="value-box">
                     <h2>I</h2>
                     <p>Inklusif Dalam Bergerak.</p>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <div class="value-box shadow-sm">
+                <div class="value-box">
                     <h2>S</h2>
                     <p>Sustainable Dalam Berkarya.</p>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
