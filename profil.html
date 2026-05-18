@@ -73,12 +73,74 @@
             }
         }
 
+        /* =========================
+           VISUAL POHON KRITIS
+        ========================= */
+        .values-tree {
+            position: relative;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .tree-word {
+            display: inline-block;
+            font-size: 52px;
+            font-weight: 900;
+            letter-spacing: 12px;
+            color: #212529;
+            position: relative;
+            padding-bottom: 80px;
+        }
+
+        /* Batang utama */
+        .tree-word::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 45px;
+            background: #212529;
+            border-radius: 10px;
+        }
+
+        /* Garis horizontal akar */
+        .values-tree::after {
+            content: '';
+            position: absolute;
+            top: 128px;
+            left: 16.66%;
+            right: 16.66%;
+            height: 4px;
+            background: #212529;
+            border-radius: 10px;
+        }
+
+        /* =========================
+           VALUE BOX
+        ========================= */
         .value-box {
+            position: relative;
             padding: 30px;
             border-radius: 18px;
             background: #ffffff;
             transition: 0.3s;
             height: 100%;
+            margin-top: 40px;
+        }
+
+        /* Garis vertikal ke tiap box */
+        .value-box::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 40px;
+            background: #212529;
+            border-radius: 10px;
         }
 
         .value-box:hover {
@@ -93,6 +155,28 @@
 
         footer {
             background: #0f172a;
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            .tree-word {
+                font-size: 34px;
+                letter-spacing: 6px;
+                padding-bottom: 50px;
+            }
+
+            .tree-word::after {
+                height: 30px;
+            }
+
+            .values-tree::after,
+            .value-box::before {
+                display: none;
+            }
+
+            .value-box {
+                margin-top: 0;
+            }
         }
     </style>
 </head>
@@ -123,14 +207,14 @@
 
 <section class="profil-modern">
     <div class="container content">
-        <h4>Kabinet Rajut Asa<h4>
-        <p>
+        <h4>Kabinet Rajut Asa</h4>
+        <p></p>
         <h2>BEM KM UMY 2026</h2>
         <p>
-            BEM KM UMY adalah organisasi mahasiswa yang menjadi wadah aspirasi, pengembangan, 
+            BEM KM UMY adalah organisasi mahasiswa yang menjadi wadah aspirasi, pengembangan,
             dan perjuangan mahasiswa Universitas Muhammadiyah Yogyakarta.
-        </p> 
-            
+        </p>
+
         <p>
             Bergerak dalam advokasi, riset sosial, serta implementasi program strategis demi menciptakan
             kampus yang progresif dan berdaya saing.
@@ -141,6 +225,11 @@
 <section class="py-5">
     <div class="container">
         <h2 class="section-title">Nilai-Nilai Organisasi</h2>
+
+        <!-- Visual Pohon KRITIS -->
+        <div class="values-tree">
+            <div class="tree-word">KRITIS</div>
+        </div>
 
         <div class="row text-center g-4 mt-3">
             <div class="col-md-4">
@@ -163,18 +252,21 @@
                     <p>Inovatif Dengan Zaman.</p>
                 </div>
             </div>
+
             <div class="col-md-4">
                 <div class="value-box shadow-sm">
                     <h2>T</h2>
                     <p>Tangguh Menghadapi Tantangan.</p>
                 </div>
             </div>
+
             <div class="col-md-4">
                 <div class="value-box shadow-sm">
                     <h2>I</h2>
                     <p>Inklusif Dalam Bergerak.</p>
                 </div>
             </div>
+
             <div class="col-md-4">
                 <div class="value-box shadow-sm">
                     <h2>S</h2>
